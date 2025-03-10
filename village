@@ -1,0 +1,45 @@
+
+#!/bin/bash
+#!/bin/bash
+
+# Define the list of servers
+SERVERS=(
+    "server1.domain.com"
+    "server2.domain.com"
+    "server3.domain.com"
+    # Add more servers up to 100
+)
+
+# Define the command to run on each server
+COMMAND="uptime"  # Change this to the command you want to run
+
+# Loop through each server and execute the command
+for SERVER in "${SERVERS[@]}"; do
+    echo "Executing on $SERVER..."
+    ssh -o BatchMode=yes -o ConnectTimeout=5 "$SERVER" "$COMMAND" &
+done
+
+wait  # Wait for all background processes to complete
+
+echo "Command execution completed on all servers."
+
+# Define the list of servers
+SERVERS=(
+    "server1.domain.com"
+    "server2.domain.com"
+    "server3.domain.com"
+    # Add more servers up to 100
+)
+
+# Define the command to run on each server
+COMMAND="uptime"  # Change this to the command you want to run
+
+# Loop through each server and execute the command
+for SERVER in "${SERVERS[@]}"; do
+    echo "Executing on $SERVER..."
+    ssh -o BatchMode=yes -o ConnectTimeout=5 "$SERVER" "$COMMAND" &
+done
+
+wait  # Wait for all background processes to complete
+
+echo "Command execution completed on all servers."
